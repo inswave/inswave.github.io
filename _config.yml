@@ -48,12 +48,12 @@ exclude: [README.md, Gemfile, Gemfile.lock]
 
 keep_files: [assets, files]
 github: [metadata]
-# iolo's custom
+
 author: webmaster@inswave.com
 image: '/assets/images/default_blog_cover.png'
 asset_url: /assets
 google_analytics:
-  ua: 'UA-72007721-1'
+  ua: 'UA-1212521-13'
 facebook:
   app_id: '1204347326263800'
   username: inswave
