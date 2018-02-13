@@ -13,7 +13,6 @@ permalink: /:year/:month/:day/:title/
 excerpt_separator: <!--more-->
 
 markdown: kramdown
-theme: jekyll-theme-slate
 
 krandown:
   input: GFM
@@ -51,16 +50,12 @@ keep_files: [assets, files]
 github: [metadata]
 # iolo's custom
 author: webmaster@inswave.com
-image: '/assets/images/default_blog_cover.jpg'
+image: '/assets/images/default_blog_cover.png'
 asset_url: /assets
 google_analytics:
   ua: 'UA-72007721-1'
 facebook:
   app_id: '1204347326263800'
   username: inswave
-twitter:
-  username: inswavedev
-google_plus:
-  username: inswavedev
 github_url:
   username: inswave
