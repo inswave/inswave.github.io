@@ -1,0 +1,120 @@
+Github Page 설정하기
+============
+Github Page를 이용하여 USERNAME.github.io 도메인을 정적 페이지로 호스팅(Hosting) 할 수 있다.
+
+Repository 생성
+---------------
+* 이름은 inswave.github.io 입력
+* public 선택
+
+Clone Repository
+-----------------
+```
+$ git clone https://github.com/username/username.github.io
+```
+
+블로그 프레임워크 선택
+==============
+Githuyb page를 블로그로 만드는데 Jekyll과 Hexo가 일반적으로 사용된다. Hexo는 JavaScript기반에 기본 테마 디자인이 미려하여 사용하는 사람이 많지만 Git으로 블로그 포스트 버전관리가 어렵다는 치명적인 단점이 있어서 Jekyll을 선택하였다.
+
+Jekyll은 가장 많은 사용자를 보유하고 있으며 Github Page에서 직접 지원하고 있어서 설정이 쉽다는 장점이 있다. 단점으로는 Ruby기반으로 속도가 느리고 오류가 발생하는 경우 Ruby를 알아야 할 수 있다.
+
+jekyll 사이트에 다음과 같이 설명하고 있다.
+
+> Jekyll 은 아주 심플하고 블로그 지향적인 정적 사이트 생성기입니다. Jekyll 은 다양한 포맷의 원본 텍스트 파일을 템플릿 디렉토리로부터 읽어서, (Markdown 등의) 변환기와 Liquid 렌더러를 통해 가공하여, 당신이 즐겨 사용하는 웹 서버에 곧바로 게시할 수 있는, 완성된 정적 웹사이트를 만들어냅니다. 그리고 Jekyll 은 GitHub Pages 의 내부 엔진이기도 합니다. 다시 말해, Jekyll 을 사용하면 자신의 프로젝트 페이지나 블로그, 웹사이트를 무료로 GitHub 에 호스팅 할 수 있다는 뜻입니다.
+
+블로그 구성
+=======
+
+먼저 github 기본 테마 중 [slate](https://pages-themes.github.io/slate/)를 선택하여 download 하고 _config.yml 파일을 구성하였다.
+
+```
+title: inswave 기술 블로그
+email: webmaster@inswave.com
+description: |
+  웹을 넘어 새로운 비즈니스 가치의 창출
+baseurl: ''
+url: 'http://tech.inswave.com'
+timezone: Asia/Seoul
+
+repository: inswave/inswave.github.io
+
+permalink: /:year/:month/:day/:title/
+
+excerpt_separator: <!--more-->
+
+markdown: kramdown
+theme: jekyll-theme-slate
+
+krandown:
+  input: GFM
+  highlighter: rouge
+
+plugins:
+  - jekyll-paginate
+
+paginate: 5
+paginate_path: '/page/:num/'
+
+collections:
+  authors:
+    output: true
+    permalink: /authors/:path/
+  tags:
+    output: true
+    permalink: /tags/:path/
+
+defaults:
+  - scope:
+      path: ''
+      type: authors
+    values:
+      layout: author
+  - scope:
+      path: ''
+      type: tags
+    values:
+      layout: tag
+
+exclude: [README.md, Gemfile, Gemfile.lock]
+
+keep_files: [assets, files]
+github: [metadata]
+# iolo's custom
+author: webmaster@inswave.com
+image: '/assets/images/default_blog_cover.jpg'
+asset_url: /assets
+google_analytics:
+  ua: 'UA-72007721-1'
+facebook:
+  app_id: '1204347326263800'
+  username: inswave
+twitter:
+  username: inswavedev
+google_plus:
+  username: inswavedev
+github_url:
+  username: inswave
+```
+
+_config.yml을 구성할 때 Apache2 라이선스로 공개되어 있는 [kakao 기술 블로그 소스](https://github.com/kakao/kakao.github.io/blob/master/_config.yml)를 참고하여 구성했다.
+
+
+접속 주소
+========
+
+http://tech.inswave.com
+http://inswave.github.io/
+
+참고 링크
+======
+
+* GitHub Page - https://pages.github.com/
+* jekyll vs hexo - https://trends.google.com/trends/explore?cat=31&date=2008-01-01%202018-01-31&q=jekyll,hexo
+* Jekyll - https://jekyllrb-ko.github.io/
+* 지킬로 깃허브에 무료 블로그 만들기 - https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/
+* kakao 기술 블로그가 GitHub Pages로 간 까닭은 - http://tech.kakao.com/2016/07/07/tech-blog-story/
+* http://tech.kakao.com/
+* https://github.com/kakao/kakao.github.io
+* http://tech.lezhin.com/
+* https://github.com/lezhin/lezhin.github.io
