@@ -13,6 +13,7 @@ permalink: /:year/:month/:day/:title/
 excerpt_separator: <!--more-->
 
 markdown: kramdown
+theme: jekyll-theme-slate
 
 krandown:
   input: GFM
