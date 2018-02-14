@@ -14,8 +14,8 @@
     <ul class="search__results" id="results-container"></ul>
 
     <ul id="menu" class="nav">
-        <li class="{% if page.url != '/opensource/' and page.url != '/openapi/' and page.url != '/events/' %} active {% endif %}"><a href="{{ base_path }}/">블로그</a></li>
-        <li><a href="http://qna.inswave.com/">기술지원</a></li>
+        <li class="{% if page.url != '/opensource/' and page.url != '/openapi/' and page.url != '/events/' %} active {% endif %}"><a href="{{ base_path }}/">blog</a></li>
+        <li class="{% if page.url == '/about/' %} active {% endif %}"><a href="{{ base_path }}/about/">about</a></li>
     </ul>
 </div>
 <!-- Script pointing to jekyll-search.js -->
