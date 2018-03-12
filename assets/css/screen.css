@@ -844,7 +844,7 @@ body.tag-template #navbar {
 #post-content blockquote {
     margin: 28px 0;
     padding: 28px;
-    border-left: 3px solid #f3cf00;
+    border-left: 3px solid #006fdf;
 }
 
 #post-content blockquote > *:first-child {
@@ -897,7 +897,7 @@ body.tag-template #navbar {
 /* @@iolo */
 #post-content table {
     margin: 1em auto;
-    border: 3px solid #f3cf00;
+    border: 3px solid #24519e;
 }
 
 #post-content th {
