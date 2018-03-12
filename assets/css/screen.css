@@ -229,7 +229,7 @@ for small screen(<720px):
 
 #menu > li.active,
 #menu > li:hover {
-    border-bottom: 1px solid #1e1e1e;
+    border-bottom: 2px solid #006fdf;
     color: #1e1e1e;
     font-weight: 400;
 }
