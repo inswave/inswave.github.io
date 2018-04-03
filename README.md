@@ -13,7 +13,7 @@ tech.inswave.com
 2. [Jekyll] 설치
 
 ```console
-$ git clone git@github.com:inswave/inswave.github.io.git
+$ git clone git@github.com/inswave/inswave.github.io.git
 $ cd inswave.github.io
 $ bundle install
 ```
