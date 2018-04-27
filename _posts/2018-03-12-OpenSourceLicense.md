@@ -2,7 +2,7 @@
 layout: post
 title: '[0009] 오픈소스 라이선스의 이해'
 author: yunjumyung
-date: 2018-03-12 12:56
+date: 2018-04-27 11:10
 tags: [오픈소스]
 ---
 
