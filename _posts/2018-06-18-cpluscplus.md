@@ -284,13 +284,42 @@ pt->y = 100;
 	double ato<double>(const char* c) { return atof(c); }
 	template <>
 	long ato<long>(const char* c) { return atol(c); }
-	int i = ssh::ato<int>(std::string("103050").c_str());
-	double d = ssh::ato<double>(std::string("103050.23243").c_str());
+	int i = ato<int>(std::string("103050").c_str());
+	double d = ato<double>(std::string("103050.23243").c_str());
 ```
 * [template metaprogramming](https://en.wikipedia.org/wiki/Template_metaprogramming)
 	* [simple C++11 TMP](http://www.pdimov.com/cpp2/simple_cxx11_metaprogramming.html)
 	
 ---
 
+### 3-7. STL
+* C++ 표준 라이브러리의 모음.
+* 모두 template로 이루어져 있다.
+* [C++ 협회가 관리](https://isocpp.org/std/the-committee)
+* boost library에 등록된 기능 중 안정화된 기능이 stl로 등록되는 경우가 많다.
+* 유용한 기능 
+	* [<algorithm>](http://en.cppreference.com/w/cpp/algorithm) : 잡다한 기능을 제공. 다른 stl library를 쓰려면 알아야 한다. sort, search기능은 TMP까지 적용되어 매우 빠르다. 
+	* [<vector>](https://www.geeksforgeeks.org/vector-in-cpp-stl/) : 이걸 사용할 수 있게 되면 더 이상 메모리 관리를 일일이 신경쓰지 않아도 된다. 
+	* [<string>](https://www.geeksforgeeks.org/stdstring-class-in-c/) : string 처리를 javascript만큼 쉽게 처리할 수 있도록 해준다.
 
+---
+
+## 4. modern C++
+
+---
+
+### 4-1. move semantics
+* 복사 생성자에 대한 의문 - 과연 이것이 최선인가? 
+* 임시로 만들어지는 임시객체들이 왜 복사생성을 거쳐야 하는가? 원본이 필요없다!
+* 임시 객체는 복사가 아니라 단순히 이동만 해야 하는 것이 아닌가? copy&paste 개념이 아니라 move 개념이어야 한다.
+* 그렇다면 어떤 경우에 이동이 일어나야 하고 어떤 경우에 복사가 일어나야 하는가? -> Rvalue Reference 개념의 탄생
+* lvalue reference, rvalue reference
+``` c++
+	BigDecimal a(std::string("100")); // std::string("100")은 임시객체. 객체가 유지될 필요가 없는 존재다. 
+	BigDecimal b("300"); // 마찬가지로 std::string("300")은 유지될 필요가 없는 존재이다. 
+	BigDecimal c = a + b + std::string("300") + "500"; // std::string("300"), std::string("500")은 유지될 필요가 없다. 
+	c += a * b; // a*b를 연산한 중간 결과물은 유지될 필요가 없다.
+```
+
+---
 # 감사합니다.
