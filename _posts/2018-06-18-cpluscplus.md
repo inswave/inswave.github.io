@@ -16,18 +16,18 @@ tags: [C++]
 ## 1. C++ 추천 대상
 ## 2. C++ 배우는 방법
 ## 3. C++기초
-	### 3-1. pointer
-	### 3-2. const
-	### 3-3. copy constructor
-	### 3-4. virtual function
-	### 3-5. operator overloading
-	### 3-6. template : generic programming
-	### 3-7. STL
+  ### 3-1. pointer
+  ### 3-2. const
+  ### 3-3. copy constructor
+  ### 3-4. virtual function
+  ### 3-5. operator overloading
+  ### 3-6. template : generic programming
+  ### 3-7. STL
 ## 4. modern C++
-	### 4-1. move semantics
-	### 4-2. auto / decltype / decltype(auto)
-	### 4-3. shared_ptr
-	### 4-4. lambda expression
+  ### 4-1. move semantics
+  ### 4-2. auto / decltype / decltype(auto)
+  ### 4-3. shared_ptr
+  ### 4-4. lambda expression
 ---
 
 ## 1. C++ 추천 대상
@@ -158,7 +158,6 @@ pt->y = 100;
 		B(B&& obj) { } // 이동 생성자 (C++11)
 		~B() { } // 파괴자
 	}
-	
 	B obj1;
 	B obj2 = obj1; // 복사생성자 호출
 	B obj3(obj1); // 복사생성자 호출
@@ -187,5 +186,46 @@ pt->y = 100;
 	
 ---
 
+### 3-4. virtual function
+* [가상 함수의 개념](http://soen.kr/lecture/ccpp/cpp3/30-1-1.htm)
+* [가상 함수의 활용](http://soen.kr/lecture/ccpp/cpp3/30-2-1.htm)
+* c++ 방식의 다형성을 지원하는 방법 중 하나
+* Java와 같은 다른 객체 지향 언어들은 virtual function만을 지원함 
+* virtual function일 필요가 없는 함수들도 분명히 존재함 
+* c++ 에서는 오버헤드를 없애기 위해 기본을 비가상 함수로, virtual 키워드를 붙이는 경우에만 가상 함수로 만듬.
+``` c++
+	class virtual_parent {
+	public:
+		int get(int x) {
+			return x;
+		}
+		virtual int get2(int x) {
+			return x + 1;
+		}
+	};
+	class virtual_child1 : public virtual_parent {
+	public:
+		int get(int x) {
+			return x + 10;
+		}
+		int get2(int x) {
+			return x + 100;
+		}
+	};
+	virtual_parent* x = new virtual_parent();
+	virtual_child1* y = new virtual_child1();
+	virtual_parent* p = x;
+	int a = p->get(100);	// parent의 get 호출 
+	int a2 = p->get2(100);	// parent의 get2 호출 
+	p = y;
+	int b = p->get(100);	// parent의 get 호출 
+	int b2 = p->get2(100);	// child1의 get2 호출 
+```
+
+---
+
+### 3-5. operator overloading
+
+---
 
 # 감사합니다.
