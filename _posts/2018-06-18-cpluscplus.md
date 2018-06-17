@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: '[0012] C++(테스트)'
+title: '[0012] C++'
 author: shinsanghun
 date: 2018-06-18 12:00
 tags: [C++]
