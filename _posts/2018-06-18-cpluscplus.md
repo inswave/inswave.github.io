@@ -8,48 +8,45 @@ tags: [C++]
 
 ---
 
-# [C++](http://http://www.cplusplus.com/)
+# [C++]
 
 ---
 
-## OverView
+## 목차
 
-### 1. Java history
-### 2. 용어설명
+### 1. c++ 추천 대상
+### 2. c++ 배우는 방법
 ### 3. Java9 변화된 부분
 
 ---
 
-### 1. Java history
+### 1. c++ 추천 대상
 
 ---
 
-## Java history
-* 1991 : Green (Oak)
-* 1994 : JDK EAs
-* 1996 1월 : JDK 1.0
-* 1997 2월 : JDK 1.1
-* 1998 12월 : J2SE 1.2
-* 2000 5월 : J2SE 1.3
-* 2002 2월 : J2SE 1.4
-* 2004 9월 : J2SE 5.0
+## 
+* 성능에 민감한 개발자 
+* 컴퓨터 구조를 이해하고 싶은 개발자
+* 커널/드라이버 프로그래밍 (보안프로그램, 임베디드)
+* 여러 프로그래밍 언어를 다루는 개발자
+* UI가 없는 프로그램을 개발하는 경우
+* openGL / directX 개발자
+* WebAssembly (https://webassembly.org/docs/c-and-c++/) / Rust
 
 ---
 
-## Java history
-* 2006 12월 : Java SE6
-* 2011 7월 : Java SE7
-* 2014 4월 : Java SE8
-* 2015 12월 ~ 2016 5월 : Java SE9 (feature complete)
-* 2016 9월 : Java SE9 (release)
-* 2017/01/26 : Final Release Candidate
-* 2017/03/23 : General Avaiability
-* Java8 이후 2년 간격으로 새로운 버전을 내놓을 예정
+### 2. c++ 배우는 방법
+* c 기초 : [SoEn:소프트웨어 공학 연구소](http://soen.kr//)
+** 포인터의 개념을 확실하게 이해해야 c++을 조금이라도 이해할 수 있다.
+** 15장 포인터 고급, 16장 함수 고급 이해 필요.
+* c++ 기초 : [SoEn:소프트웨어 공학 연구소](http://soen.kr//)
+** 26-2 복사생성자, 28장 연산자 오버로딩, 30장 다형성, 31장 템플릿, 37장 STL
+* effective c++ : [effective c++](https://doc.lagout.org/programmation/C/Addison.Wesley.Effective.CPP.3rd.Edition.May.2005.pdf)
+* effective modern c++ : [effective modern c++](https://doc.lagout.org/programmation/C/Meyers.Effective.Modern.C++.en.pdf)
+* A Tour of Modern C++ (https://youtu.be/iWvcoIKSaoc)
+* Bjarne Stroustrup - The Essence of C++ (https://youtu.be/86xWVb4XIyE)
 
----
-
-### 2. 용어설명
-
+* 
 ---
 
 ## JCP, JSR, JEP
