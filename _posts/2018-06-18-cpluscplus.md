@@ -13,22 +13,21 @@ tags: [C++]
 ---
 
 # 목차
-
 ## 1. C++ 추천 대상
 ## 2. C++ 배우는 방법
 ## 3. C++기초
-### 3-1. pointer
-### 3-2. const
-### 3-3. copy constructor
-### 3-4. virtual function
-### 3-5. operator overloading
-### 3-6. template : generic programming
-### 3-7. STL
+	### 3-1. pointer
+	### 3-2. const
+	### 3-3. copy constructor
+	### 3-4. virtual function
+	### 3-5. operator overloading
+	### 3-6. template : generic programming
+	### 3-7. STL
 ## 4. modern C++
-### 4-1. move semantics
-### 4-2. auto / decltype / decltype(auto)
-### 4-3. shared_ptr
-### 4-4. lambda expression
+	### 4-1. move semantics
+	### 4-2. auto / decltype / decltype(auto)
+	### 4-3. shared_ptr
+	### 4-4. lambda expression
 ---
 
 ## 1. C++ 추천 대상
@@ -40,7 +39,8 @@ tags: [C++]
 * 여러 프로그래밍 언어를 다루는 개발자
 * UI가 없는 프로그램을 개발하는 경우
 * openGL / directX 개발자
-* [WebAssembly](https://webassembly.org/docs/c-and-c++/) / Rust
+* [WebAssembly](https://webassembly.org/docs/c-and-c++/)
+
 ---
 
 ## 2. C++ 배우는 방법
@@ -56,6 +56,7 @@ tags: [C++]
 * [A Tour of Modern C++](https://youtu.be/iWvcoIKSaoc)
 * [Bjarne Stroustrup - The Essence of C++](https://youtu.be/86xWVb4XIyE)
 * [boost](https://www.boost.org) 
+
 ---
 
 ## 3. C++ 기초
@@ -109,11 +110,14 @@ pt->y = 100;
 		delete x;
 		delete y; // double free
 ```
+	* double free 방지 코드
+``` c++
+	#define SAFE_DELETE(p) { if (p) { delete (p); (p) = nullptr; }}
+```	
 	
 ---
 
 ### 3-2. const
-
 * [c++의 const](https://www.studytonight.com/cpp/const-keyword.php)
 ``` c++
 		const int A = 100;
@@ -144,6 +148,43 @@ pt->y = 100;
 
 ### 3-3. copy constructor
 
+* [복사 생성자의 개념](http://soen.kr/lecture/ccpp/cpp3/26-2-2.htm)
+* 언제 호출되는가?
+	* 객체 초기화 중 아래와 같은 과정에서 호출됨
+``` c++
+	class B {
+		B() { } // 기본 생성자
+		B(const B &obj) { } // 복사 생성자
+		B(B&& obj) { } // 이동 생성자 (C++11)
+		~B() { } // 파괴자
+	}
+	
+	B obj1;
+	B obj2 = obj1; // 복사생성자 호출
+	B obj3(obj1); // 복사생성자 호출
+	B obj4;
+	B obj4 = obj1; // 대입 연산자 = 이 호출되고, class B에서 대입연산자를 정의하지 않아 오류 발생
+```
+	* 함수 인자로 객체 전달 시 호출됨
+``` c++
+	void testFunc(B obj) {}; 
+	testFunc(obj1); // 복사생성자 호출
+```
+* 왜 존재하는가? 
+	* 성능 향상을 위해 : 임시 객체를 생성할 때 기본 생성자를 호출하는 것은 낭비이다. 
+	* 특히 함수 객체를 call-by-value로 전달하는 경우를 위해 만들어짐.
+* 동작 원리 
+	* 복사 생성자를 정의하지 않을 경우 기본 복사 생성자와 기본 대입 연산자(=)가 정의됨.
+	* 기본 복사 생성자와 기본 대입 연산자는 얕은 복사를 수행함.
+	* 깊은 복사가 필요한 경우에는 반드시 복사 생성자 및 대입 연산자를 정의해야 함.
+	* 복사 생성자를 정의할 경우 기본 대입 연산자는 삭제됨.
+* copy constructor 호출을 최소화하는 방법 
+	* 함수 인자 정의 시 call-by-value 대신 const call-by-reference 사용
+``` c++
+	void testFunc(B obj) {}; // 복사 생성자 및 파괴자가 호출됨.
+	void testFunc(const B& obj) {}; // 복사 생성자와 파괴자의 호출이 생략됨. 그리고 const에 의해 obj의 값 변경 불가능
+```		 
+	
 ---
 
 
