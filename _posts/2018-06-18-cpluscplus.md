@@ -269,6 +269,28 @@ pt->y = 100;
 
 ---
 
-* 
+### 3-6. template : generic programming
+* c와 c++의 결정적인 차이 중 하나
+* strongly-typed language의 혁명
+* [함수 템플릿](http://soen.kr/lecture/ccpp/cpp3/31-1-1.htm)
+* [클래스 템플릿](http://soen.kr/lecture/ccpp/cpp3/31-2-1.htm)
+* example : atoi, atof, atol 
+``` c++
+	template <typename T>
+	T ato(const char* c);
+	template <>
+	int ato<int>(const char* c) { return atoi(c); }
+	template <>
+	double ato<double>(const char* c) { return atof(c); }
+	template <>
+	long ato<long>(const char* c) { return atol(c); }
+	int i = ssh::ato<int>(std::string("103050").c_str());
+	double d = ssh::ato<double>(std::string("103050.23243").c_str());
+```
+* [template metaprogramming](https://en.wikipedia.org/wiki/Template_metaprogramming)
+	* [simple C++11 TMP](http://www.pdimov.com/cpp2/simple_cxx11_metaprogramming.html)
+	
+---
+
 
 # 감사합니다.
