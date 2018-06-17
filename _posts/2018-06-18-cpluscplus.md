@@ -12,19 +12,27 @@ tags: [C++]
 
 ---
 
-## 목차
+# 목차
 
-### 1. c++ 추천 대상
-### 2. c++ 배우는 방법
-### 3. Java9 변화된 부분
-
+## 1. C++ 추천 대상
+## 2. C++ 배우는 방법
+## 3. C++기초
+### 3-1. pointer
+### 3-2. copy constructor
+### 3-3. virtual function
+### 3-4. operator overloading
+### 3-5. template : generic programming
+### 3-6. STL
+## 4. modern C++
+### 4-1. move semantics
+### 4-2. auto / decltype / decltype(auto)
+### 4-3. shared_ptr
+### 4-4. lambda expression
 ---
 
-### 1. c++ 추천 대상
+## 1. C++ 추천 대상
 
 ---
-
-## 
 * 성능에 민감한 개발자 
 * 컴퓨터 구조를 이해하고 싶은 개발자
 * 커널/드라이버 프로그래밍 (보안프로그램, 임베디드)
@@ -32,32 +40,41 @@ tags: [C++]
 * UI가 없는 프로그램을 개발하는 경우
 * openGL / directX 개발자
 * WebAssembly (https://webassembly.org/docs/c-and-c++/) / Rust
+---
+
+## 2. C++ 배우는 방법
+
+---
+* C 기초 : [SoEn:소프트웨어 공학 연구소](http://soen.kr//)
+	* 포인터의 개념을 확실하게 이해해야 C++을 조금이라도 이해할 수 있다.
+	* 15장 포인터 고급, 16장 함수 고급 이해 필요.
+* C++ 기초 : [SoEn:소프트웨어 공학 연구소](http://soen.kr//)
+	* 26-2 복사생성자, 28장 연산자 오버로딩, 30장 다형성, 31장 템플릿, 37장 STL
+* [effective C++](https://doc.lagout.org/programmation/C/Addison.Wesley.Effective.CPP.3rd.Edition.May.2005.pdf)
+* [effective modern C++](https://doc.lagout.org/programmation/C/Meyers.Effective.Modern.C++.en.pdf)
+* [A Tour of Modern C++] (https://youtu.be/iWvcoIKSaoc)
+* [Bjarne Stroustrup - The Essence of C++] (https://youtu.be/86xWVb4XIyE)
+* [boost](https://www.boost.org/) 
+---
+
+## 3. C++ 기초
 
 ---
 
-### 2. c++ 배우는 방법
-* c 기초 : [SoEn:소프트웨어 공학 연구소](http://soen.kr//)
-** 포인터의 개념을 확실하게 이해해야 c++을 조금이라도 이해할 수 있다.
-** 15장 포인터 고급, 16장 함수 고급 이해 필요.
-* c++ 기초 : [SoEn:소프트웨어 공학 연구소](http://soen.kr//)
-** 26-2 복사생성자, 28장 연산자 오버로딩, 30장 다형성, 31장 템플릿, 37장 STL
-* effective c++ : [effective c++](https://doc.lagout.org/programmation/C/Addison.Wesley.Effective.CPP.3rd.Edition.May.2005.pdf)
-* effective modern c++ : [effective modern c++](https://doc.lagout.org/programmation/C/Meyers.Effective.Modern.C++.en.pdf)
-* A Tour of Modern C++ (https://youtu.be/iWvcoIKSaoc)
-* Bjarne Stroustrup - The Essence of C++ (https://youtu.be/86xWVb4XIyE)
-
-* 
----
-
-## JCP, JSR, JEP
-* JCP (Java Community Process)
-    * Java 기술의 표준 기술 명세서를 개발하는 체제
-* JSR (Java Specification Request Java)
-    * 요구사항 상세 명세
-    * Java Platform에 제안된 실제 명세서와 최종결정된 명세
-* JEP (JDK Enhancement Proposal)
-    * Java Development Kit과 OpenJDK을 향상시키기 위한 제안들을 모으는 오라클의 밑그림을 그리는 처리방법, 장기적인 로드맵 역할을 한다
-
+### 3-1. pointer
+* 메모리에 직접 접근하는 기능
+* pointer 때문에 모든게 2배로 복잡해짐.
+	* const 표현도 2가지 경우가 존재
+``` c++
+		const int A = 100;
+		const int* const pA = &A;
+``` 
+	* pointer type 전용 연산 : \*, ->
+``` c++
+int x = *pA; 
+Polynomial* x = new Polynomial();
+x->addPlus(t);
+```	
 ---
 
 ## OpenJDK
