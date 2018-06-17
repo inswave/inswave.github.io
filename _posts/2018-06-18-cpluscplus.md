@@ -16,18 +16,18 @@ tags: [C++]
 ## 1. C++ 추천 대상
 ## 2. C++ 배우는 방법
 ## 3. C++기초
-  ### 3-1. pointer
-  ### 3-2. const
-  ### 3-3. copy constructor
-  ### 3-4. virtual function
-  ### 3-5. operator overloading
-  ### 3-6. template : generic programming
-  ### 3-7. STL
+### 3-1. pointer
+### 3-2. const
+### 3-3. copy constructor
+### 3-4. virtual function
+### 3-5. operator overloading
+### 3-6. template : generic programming
+### 3-7. STL
 ## 4. modern C++
-  ### 4-1. move semantics
-  ### 4-2. auto / decltype / decltype(auto)
-  ### 4-3. shared_ptr
-  ### 4-4. lambda expression
+### 4-1. move semantics
+### 4-2. auto / decltype / decltype(auto)
+### 4-3. shared_ptr
+### 4-4. lambda expression
 ---
 
 ## 1. C++ 추천 대상
@@ -40,6 +40,7 @@ tags: [C++]
 * UI가 없는 프로그램을 개발하는 경우
 * openGL / directX 개발자
 * [WebAssembly](https://webassembly.org/docs/c-and-c++/)
+* [ioccc](https://www.ioccc.org/years-spoiler.html)
 
 ---
 
@@ -225,7 +226,49 @@ pt->y = 100;
 ---
 
 ### 3-5. operator overloading
+* 연산자 오버로딩 기초(https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm)
+* 잘 사용하면 객체의 관계를 훨씬 더 직관적으로 보이게 할 수 있다.
+``` c++
+	class BigDecimal {
+	private:
+		std::vector<int> m_data;
+	public:
+		BigDecimal(const std::string& n) {
+			for (const char&c : n)
+			{
+				m_data.emplace_back(static_cast<int>(c - '0'));
+			}
+		}
+		BigDecimal(const BigDecimal& obj) {
+			m_data = obj.m_data;
+		}
+		const BigDecimal operator +(const BigDecimal& obj) const; // 1
+		const BigDecimal operator +(const std::string& n) const; // 2
+		const BigDecimal operator -(const BigDecimal& obj) const; // 3
+		const BigDecimal operator -(const std::string& n) const; // 4
+		const BigDecimal operator *(const BigDecimal& obj) const; // 5
+		const BigDecimal operator *(const std::string& n) const; // 6
+		const BigDecimal operator ^(const BigDecimal& obj) const; // 7
+		const BigDecimal operator ^(const std::string& n) const; // 8
+		BigDecimal& operator =(const BigDecimal& obj); // 9
+		BigDecimal& operator =(const std::string& n); // 10
+		bool operator ==(const BigDecimal& obj) const; // 11
+		bool operator !=(const BigDecimal& obj) const; // 12
+		BigDecimal& operator +=(const BigDecimal& obj); // 13
+		BigDecimal& operator -=(const BigDecimal& obj); // 14
+	};
+	BigDecimal a(std::string("100"));
+	BigDecimal b("300");
+	BigDecimal c = a + b + std::string("300") + "500"; // 1,2,9 
+	c += a * b; // 5,13
+	if(a == b) { } // 11 
+```
+* [function objects (functors)](https://www.geeksforgeeks.org/functors-in-cpp/)
+	* class 생성자 ()를 overloading 하는 기법
+	* function object는 1급 객체이고, inline처럼 동작하여 function pointer에 비해 훨씬 가볍다.  
 
 ---
+
+* 
 
 # 감사합니다.
