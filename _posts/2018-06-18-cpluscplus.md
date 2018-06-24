@@ -301,6 +301,9 @@ pt->y = 100;
 ```
 * [template metaprogramming](https://en.wikipedia.org/wiki/Template_metaprogramming)
 	* [simple C++11 TMP](http://www.pdimov.com/cpp2/simple_cxx11_metaprogramming.html)
+* 템플릿의 타입 추론 방법 
+	* [Template argument deduction](https://en.cppreference.com/w/cpp/language/template_argument_deduction)
+	* [effective modern C++ 9~18 page](https://doc.lagout.org/programmation/C/Meyers.Effective.Modern.C++.en.pdf)
 	
 ---
 
@@ -337,13 +340,21 @@ pt->y = 100;
 
 ### 4-2. auto / decltype / decltype(auto)
 
+* auto : 컴파일러가 type을 자동으로 추론하는 기능.
+* template type의 경우 template type 추론 원리와 동일
+
 ---
 
 ### 4-3. shared_ptr
 
+* garbage collection 기능을 C++에 구현하기 위해 만든 STL
+
 ---
 
 ### 4-4. lambda expression
+
+* functional languague에 영감을 받아 만든 기능 
+* functor를 사용한다.
 
 ---
 
