@@ -21,8 +21,9 @@ tags: [C++]
 ### 3-3. copy constructor
 ### 3-4. virtual function
 ### 3-5. operator overloading
-### 3-6. template : generic programming
-### 3-7. STL
+### 3-6. functor
+### 3-7. template : generic programming
+### 3-8. STL
 ## 4. modern C++
 ### 4-1. move semantics
 ### 4-2. auto / decltype / decltype(auto)
@@ -194,6 +195,7 @@ pt->y = 100;
 * Java와 같은 다른 객체 지향 언어들은 virtual function만을 지원함 
 * virtual function일 필요가 없는 함수들도 분명히 존재함 
 * c++ 에서는 오버헤드를 없애기 위해 기본을 비가상 함수로, virtual 키워드를 붙이는 경우에만 가상 함수로 만듬.
+* vtable을 만들어서 관리. 오버헤드 발생.
 ``` c++
 	class virtual_parent {
 	public:
@@ -263,13 +265,23 @@ pt->y = 100;
 	c += a * b; // 5,13
 	if(a == b) { } // 11 
 ```
-* [function objects (functors)](https://www.geeksforgeeks.org/functors-in-cpp/)
-	* class 생성자 ()를 overloading 하는 기법
-	* function object는 1급 객체이고, inline처럼 동작하여 function pointer에 비해 훨씬 가볍다.  
 
 ---
 
-### 3-6. template : generic programming
+### 3-6. functor
+
+* [function objects (functors)](https://www.geeksforgeeks.org/functors-in-cpp/)
+* [functor의 특징](https://stackoverflow.com/questions/356950/c-functors-and-their-uses)
+* class 생성자 ()를 overloading 하는 기법
+* function object는 1급 객체이고, inline으로 동작할 확률이 높아 function pointer에 비해 훨씬 성능면에서 뛰어나다.
+* 가상함수를 대신해서 사용했을 때 vtable을 생성하지 않는다. 
+* 뿐만 아니라 function status와 같은 추가 정보를 쉽게 관리할 수 있다.
+* C++11에서 등장한 lambda expression에서는 functor를 사용한다.
+	
+---
+
+
+### 3-7. template : generic programming
 * c와 c++의 결정적인 차이 중 하나
 * strongly-typed language의 혁명
 * [함수 템플릿](http://soen.kr/lecture/ccpp/cpp3/31-1-1.htm)
@@ -292,7 +304,7 @@ pt->y = 100;
 	
 ---
 
-### 3-7. STL
+### 3-8. STL
 * C++ 표준 라이브러리의 모음.
 * 모두 template로 이루어져 있다.
 * [C++ 협회가 관리](https://isocpp.org/std/the-committee)
@@ -322,4 +334,17 @@ pt->y = 100;
 ```
 
 ---
+
+### 4-2. auto / decltype / decltype(auto)
+
+---
+
+### 4-3. shared_ptr
+
+---
+
+### 4-4. lambda expression
+
+---
+
 # 감사합니다.
