@@ -18,12 +18,13 @@ tags: [C++]
 ## 3. C++기초
 ### 3-1. pointer
 ### 3-2. const
-### 3-3. copy constructor
-### 3-4. virtual function
-### 3-5. operator overloading
-### 3-6. functor
-### 3-7. template : generic programming
-### 3-8. STL
+### 3-3. reference
+### 3-4. copy constructor
+### 3-5. virtual function
+### 3-6. operator overloading
+### 3-7. functor
+### 3-8. template : generic programming
+### 3-9. STL
 ## 4. modern C++
 ### 4-1. move semantics
 ### 4-2. auto / decltype / decltype(auto)
@@ -148,7 +149,25 @@ pt->y = 100;
 
 ---
 
-### 3-3. copy constructor
+### 3-3. reference
+
+* [reference의 기본 개념](http://www.soen.kr/lecture/ccpp/cpp2/15-4-1.htm)
+* 포인터와 비교
+    * 변수형 앞에 &을 붙인다 (T&)
+    * 가리키는 대상을 바꿀 수 없다. (T const \*)
+    * 포인터와 달리 주소 공간을 가지지 않는다. (가리키는 대상이 변경되지 않으므로 별도의 주소공간이 필요하지 않음)
+    * 더블 레퍼런스라는 개념은 존재하지 않는다.
+    * 레퍼런스에 대한 모든 연산은 가리키는 대상에 대한 연산으로 해석된다.
+    * 함수 인자에서 레퍼런스를 취할 경우 call-by-reference 방식으로 동작한다.
+* pointer 대신 reference를 쓰는 이유
+    * 가리키는 대상을 바꿀 수 없게 하기 위해
+    * copy constructor, template에서 필수적으로 필요  
+* C++11에서는 기존의 T& 형식 이외에 T&&라는 새로운 형식을 추가하였다. 
+    * T&을 lvalue reference, T&&을 rvalue reference라고 부른다. (T&&은 더블 레퍼런스가 아니다)
+    
+---
+
+### 3-4. copy constructor
 
 * [복사 생성자의 개념](http://soen.kr/lecture/ccpp/cpp3/26-2-2.htm)
 * 언제 호출되는가?
@@ -188,7 +207,7 @@ pt->y = 100;
 	
 ---
 
-### 3-4. virtual function
+### 3-5. virtual function
 * [가상 함수의 개념](http://soen.kr/lecture/ccpp/cpp3/30-1-1.htm)
 * [가상 함수의 활용](http://soen.kr/lecture/ccpp/cpp3/30-2-1.htm)
 * c++ 방식의 다형성을 지원하는 방법 중 하나
@@ -227,7 +246,7 @@ pt->y = 100;
 
 ---
 
-### 3-5. operator overloading
+### 3-6. operator overloading
 * 연산자 오버로딩 기초(https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm)
 * 잘 사용하면 객체의 관계를 훨씬 더 직관적으로 보이게 할 수 있다.
 ``` c++
@@ -268,7 +287,7 @@ pt->y = 100;
 
 ---
 
-### 3-6. functor
+### 3-7. functor
 
 * [function objects (functors)](https://www.geeksforgeeks.org/functors-in-cpp/)
 * [functor의 특징](https://stackoverflow.com/questions/356950/c-functors-and-their-uses)
@@ -281,7 +300,7 @@ pt->y = 100;
 ---
 
 
-### 3-7. template : generic programming
+### 3-8. template : generic programming
 * c와 c++의 결정적인 차이 중 하나
 * strongly-typed language의 혁명
 * [함수 템플릿](http://soen.kr/lecture/ccpp/cpp3/31-1-1.htm)
@@ -307,7 +326,7 @@ pt->y = 100;
 	
 ---
 
-### 3-8. STL
+### 3-9. STL
 * C++ 표준 라이브러리의 모음.
 * 모두 template로 이루어져 있다.
 * [C++ 협회가 관리](https://isocpp.org/std/the-committee)
