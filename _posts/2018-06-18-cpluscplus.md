@@ -152,15 +152,16 @@ pt->y = 100;
 ### 3-3. reference
 
 * [reference의 기본 개념](http://www.soen.kr/lecture/ccpp/cpp2/15-4-1.htm)
-* 포인터와 비교
+* 기존의 pointer의 단점을 보완하기 위해 만들어진 개념
+* [포인터와의 비교](https://stackoverflow.com/questions/57483/what-are-the-differences-between-a-pointer-variable-and-a-reference-variable-in)
     * 변수형 앞에 &을 붙인다 (T&)
     * 가리키는 대상을 바꿀 수 없다. (T const \*)
-    * 포인터와 달리 주소 공간을 가지지 않는다. (가리키는 대상이 변경되지 않으므로 별도의 주소공간이 필요하지 않음)
     * 더블 레퍼런스라는 개념은 존재하지 않는다.
     * 레퍼런스에 대한 모든 연산은 가리키는 대상에 대한 연산으로 해석된다.
     * 함수 인자에서 레퍼런스를 취할 경우 call-by-reference 방식으로 동작한다.
 * pointer 대신 reference를 쓰는 이유
     * 가리키는 대상을 바꿀 수 없게 하기 위해
+    * 표현을 보다 직관적으로 하기 위해
     * copy constructor, template에서 필수적으로 필요  
 * C++11에서는 기존의 T& 형식 이외에 T&&라는 새로운 형식을 추가하였다. 
     * T&을 lvalue reference, T&&을 rvalue reference라고 부른다. (T&&은 더블 레퍼런스가 아니다)
